@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  embarazo-scraper:
+    build: .
+    container_name: elactancia_embarazo_scraper
+    volumes:
+      - ./db:/app/db
+    environment:
+      - TZ=America/Mexico_City
+      - PYTHONUNBUFFERED=1
+    restart: "no"
+    command: ["python", "elactancia_embarazo_scraper.py"]

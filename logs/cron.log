@@ -1,0 +1,64 @@
+Sending build context to Docker daemon  28.89MB
+Step 1/6 : FROM python:3.11-slim
+ ---> a6e724de6234
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> 9abfb7984407
+Step 3/6 : COPY requirements.txt .
+ ---> e096f4e67b41
+Step 4/6 : RUN pip install --no-cache-dir -r requirements.txt
+ ---> Running in 42e8870238ed
+Collecting requests (from -r requirements.txt (line 1))
+  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting beautifulsoup4 (from -r requirements.txt (line 2))
+  Downloading beautifulsoup4-4.13.4-py3-none-any.whl.metadata (3.8 kB)
+Collecting tqdm (from -r requirements.txt (line 3))
+  Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.7/57.7 kB 2.8 MB/s eta 0:00:00
+Collecting charset-normalizer<4,>=2 (from requests->-r requirements.txt (line 1))
+  Downloading charset_normalizer-3.4.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting idna<4,>=2.5 (from requests->-r requirements.txt (line 1))
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting urllib3<3,>=1.21.1 (from requests->-r requirements.txt (line 1))
+  Downloading urllib3-2.4.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi>=2017.4.17 (from requests->-r requirements.txt (line 1))
+  Downloading certifi-2025.4.26-py3-none-any.whl.metadata (2.5 kB)
+Collecting soupsieve>1.2 (from beautifulsoup4->-r requirements.txt (line 2))
+  Downloading soupsieve-2.7-py3-none-any.whl.metadata (4.6 kB)
+Collecting typing-extensions>=4.0.0 (from beautifulsoup4->-r requirements.txt (line 2))
+  Downloading typing_extensions-4.13.2-py3-none-any.whl.metadata (3.0 kB)
+Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.9/64.9 kB 128.0 MB/s eta 0:00:00
+Downloading beautifulsoup4-4.13.4-py3-none-any.whl (187 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 187.3/187.3 kB 59.0 MB/s eta 0:00:00
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 188.3 MB/s eta 0:00:00
+Downloading certifi-2025.4.26-py3-none-any.whl (159 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 159.6/159.6 kB 263.9 MB/s eta 0:00:00
+Downloading charset_normalizer-3.4.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (147 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 147.3/147.3 kB 155.0 MB/s eta 0:00:00
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.4/70.4 kB 110.1 MB/s eta 0:00:00
+Downloading soupsieve-2.7-py3-none-any.whl (36 kB)
+Downloading typing_extensions-4.13.2-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.8/45.8 kB 155.1 MB/s eta 0:00:00
+Downloading urllib3-2.4.0-py3-none-any.whl (128 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 128.7/128.7 kB 227.6 MB/s eta 0:00:00
+Installing collected packages: urllib3, typing-extensions, tqdm, soupsieve, idna, charset-normalizer, certifi, requests, beautifulsoup4
+Successfully installed beautifulsoup4-4.13.4 certifi-2025.4.26 charset-normalizer-3.4.2 idna-3.10 requests-2.32.3 soupsieve-2.7 tqdm-4.67.1 typing-extensions-4.13.2 urllib3-2.4.0
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[0m[91m
+[notice] A new release of pip is available: 24.0 -> 25.1.1
+[notice] To update, run: pip install --upgrade pip
+[0mRemoving intermediate container 42e8870238ed
+ ---> 16ac7035c31f
+Step 5/6 : COPY scraper.py .
+ ---> 923081e77b52
+Step 6/6 : CMD ["python", "scraper.py"]
+ ---> Running in 96c25660d67f
+Removing intermediate container 96c25660d67f
+ ---> b93b005c67a6
+Successfully built b93b005c67a6
+Successfully tagged medicamentos-scraper:latest
+Letras: 0it [00:00, ?it/s]Letras: 0it [00:00, ?it/s]
+✅ Scraping completado y base de datos actualizada.
